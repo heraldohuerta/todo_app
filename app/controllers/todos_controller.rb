@@ -16,19 +16,18 @@ class TodosController < ApplicationController
 
   def complete
          @todo = Todo.find(params[:id])
-         if@todo.update(completed: true)
+         if@todo.update(completed: !@todo.completed)
                redirect_to   root_path, notice: "Se ha actualizado  el registro"
          else
              redirect_to edit_todo_path(@todo), notice: "No se actualizo registro"
          end
-
   end
 
-def list
-      @todos = Todo.all
-      @completado = @todos.select{ |valor|  valor.completed }
-      @pendiente =  @todos.select{ |valor| !valor.completed  }
-end
+  def list
+        @todos = Todo.all
+        @completado = @todos.select{ |valor|  valor.completed }
+        @pendiente =  @todos.select{ |valor| !valor.completed  }
+  end
 
   def update
     @todo = Todo.find(params[:id])

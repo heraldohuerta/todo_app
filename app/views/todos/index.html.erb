@@ -11,15 +11,16 @@
 <div class='container'>
   <div class="card-deck">
   <% @todos.each do |todo| %>
-    <div class="card m-0">
+    <div class="card m-0 " style="width: 10rem;">
       <div class="card-block">
         <h5 class="card-title"><%= todo.description %></td></h5>
         <p class="card-text font-weight-bold"><%= ( todo.completed ? 'Actividad Completada': 'Sin Completar') %></p>
-        <%= link_to 'Completar', complete_todo_path(todo),class:'btn btn-primary m-1'%>
-        <%= link_to 'Editar', edit_todo_path(todo) ,class:'btn btn-primary m-1'%>
-        <%= link_to 'Ver', todo,class:'btn btn-primary m-1'%>
-        <%= link_to 'Eliminar', delete_todo_path(todo), data: { confirm: "Seguro de Eliminar?"} , method: :delete, class:'btn btn-danger m-1' %>
-
+        <div class='text-center'>
+        <%= link_to  ( todo.completed ? 'Desactivar': 'Completado') , complete_todo_path(todo), class:"btn btn-success  btn-xs m-1"%>
+        <%= link_to 'Editar', edit_todo_path(todo) ,class:'btn btn-primary   btn-xs m-1'%>
+        <%= link_to 'Ver', todo,class:'btn btn-primary  btn-xs m-1'%>
+        <%= link_to 'Eliminar', delete_todo_path(todo), data: { confirm: "Seguro de Eliminar?"} , method: :delete, class:'btn  btn-xs btn-danger m-1' %>
+      </div>
       </div>
     </div>
   <% end %>
