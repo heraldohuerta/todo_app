@@ -1,0 +1,22 @@
+<br class='mt-5'>
+<div class='container'>
+<h1>Detalle</h1>
+<table class="table table-striped">
+<thead class="thead-dark">
+  <tr>
+      <th scope="col">DESCRIPCION</th>
+      <th scope="col">ESTADO</th>
+  </tr>
+<thead>
+<tbody>
+  <tr>
+    <td><%= @todo.description %></td>
+    <td><%= ( @todo.completed ? 'Actividad Completada': 'Sin Completar') %></td>
+  </tr>
+</tbody>
+</table>
+
+<div class='text-center'>
+<%= link_to 'Volver Index',  root_path, class:'btn btn-primary' %>
+</div>
+</div>

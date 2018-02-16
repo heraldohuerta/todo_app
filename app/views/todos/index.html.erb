@@ -1,0 +1,28 @@
+<%= notice %>
+<br class='mt-5'>
+
+<h1 class="text-center">Lista de Actividades ToDo </h1>
+
+<div class='container'>
+<br><br>
+    <%= link_to 'Crar un nuevo ToDo',  todos_new_path, class:'btn btn-primary' %>
+<br><br>
+</div>
+<div class='container'>
+  <div class="card-deck">
+  <% @todos.each do |todo| %>
+    <div class="card">
+      <div class="card-block">
+        <h5 class="card-title"><%= todo.description %></td></h5>
+        <p class="card-text font-weight-bold"><%= ( todo.completed ? 'Actividad Completada': 'Sin Completar') %></p>
+        <p>
+        <%= link_to 'Completar', complete_todo_path(todo),class:'btn btn-primary m-1'%>
+        <%= link_to 'Editar', edit_todo_path(todo) ,class:'btn btn-primary m-1'%>
+        <%= link_to 'Ver', todo,class:'btn btn-primary m-1'%>
+        <%= link_to 'Eliminar', delete_todo_path(todo), data: { confirm: "Seguro de Eliminar?"} , method: :delete, class:'btn btn-danger m-1' %>
+
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

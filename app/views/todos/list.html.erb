@@ -1,0 +1,38 @@
+<br class='mt-5'>
+
+<div class=container>
+<h1 class="text-center">LISTA DE ACTIVIDADES ToDo</h1>
+</div>
+<div class="container">
+  <%= link_to 'Volver Index',  root_path, class:'btn btn-primary' %>
+</div>
+<br><br>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h1 class="text-primary">PENDIENTES</h1>
+      <% @pendiente.each do |todo| %>
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= todo.description %></td></h5>
+            <p class="card-text"><%= ( todo.completed ? 'Actividad Completada': 'Sin Completar') %></p>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="col">
+      <h1 class="text-primary">COMPLETADOS</h1>
+      <% @completado.each do |todo| %>
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= todo.description %></td></h5>
+            <p class="card-text"><%= ( todo.completed ? 'Actividad Completada': 'Sin Completar') %></p>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

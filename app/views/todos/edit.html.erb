@@ -1,0 +1,13 @@
+<%= notice %>
+<br class='mt-5'>
+<div class=container>
+<h1 class="text-center">MODIFICACION DE UN NUEVO ToDo</h1>
+<br><br>
+<br><br>
+<%= form_with(model: @todo, local: true) do |f| %>
+  <%= f.label :actividad %>  <%= f.text_field :description  %><br>
+  <%= f.label :completado%>  <%= f.check_box :completed  %> <br>
+  <%= f.submit :Modificar , class:'btn btn-primary'%>
+  <%= link_to 'Volver Index',  root_path, class:'btn btn-primary' %>
+<% end %>
+</div>
